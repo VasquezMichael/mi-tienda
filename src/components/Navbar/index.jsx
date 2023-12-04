@@ -6,10 +6,12 @@ import {
   MenuContainer,
   MenuItem,
   MobileContainer,
+  MobileAndCartContainer,
 } from "./style";
 
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./links.css";
+import CartWidget from "../CartWidget";
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 
@@ -33,13 +35,15 @@ const Navbar = () => {
     <NavbarContainer className={scrollNavbar ? "Scrolled" : ""}>
       <Wrapper>
         <LogoContainer>
-          <h2>
-            Mi <span>Tienda</span>
-          </h2>
+          <h2>MI TIENDA</h2>
         </LogoContainer>
-        <MobileContainer onClick={() => setShowMobileMenu(!showMobileMenu)}>
-          {showMobileMenu ? <FaTimes /> : <FaBars />}
-        </MobileContainer>
+        <MobileAndCartContainer>
+          <MobileContainer onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            {showMobileMenu ? <FaTimes /> : <FaBars />}
+          </MobileContainer>
+          <CartWidget />
+        </MobileAndCartContainer>
+
         <MenuContainer mobile={showMobileMenu} scrolled={scrollNavbar}>
           <MenuItem>
             <Link
