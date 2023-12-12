@@ -25,7 +25,6 @@ export const NavbarContainer = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,6 +57,7 @@ export const MenuContainer = styled.ul`
   align-items: center;
   transition: all 0.3s ease-in-out;
   color: #161619; //color de texto
+  padding: 10px;
   @media screen and (min-width: 640px) {
     position: initial;
     background-color: transparent;
@@ -76,14 +76,19 @@ export const MenuItem = styled.li`
   display: flex;
   width: 100%;
   padding: 5px;
-
+  list-style: none;
   .Link {
-    width: 100%;
-    margin: auto;
-    text-align: center;
+    width: 60%;
     font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+
+    @media screen and (min-width: 640px) {
+      width: 100%;
+      text-align: center;
+    }
     &:hover {
-      background-color: #e8e7e6;
+      border-bottom: 1px solid #000;
     }
   }
 `;

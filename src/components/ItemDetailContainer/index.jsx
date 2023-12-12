@@ -1,32 +1,26 @@
 import React from "react";
 import { Container } from "./style";
-import ItemCount from "../ItemCount";
-import ItemList from "../ItemList";
 import { useState, useEffect } from "react";
 import { customFetch } from "../../utils/customFetch";
 import { products } from "../../utils/products";
-const ItemListContainer = ({ props }) => {
-  const [listProducts, setListProducts] = useState([]);
+import ItemDetail from "../ItemDetail";
+const ItemDetailContainer = () => {
+  const [itemDetail, setItemDetail] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
     customFetch(products).then((res) => {
       setLoading(false);
-      setListProducts(res);
+      setItemDetail(res.find((item) => item.index == 1));
     });
   }, []);
 
   return (
     <Container>
-      {/* <ItemCount initial={1} stock={5} onAdd={() => {}} /> */}
-      {!loading ? (
-        <ItemList listProducts={listProducts} />
-      ) : (
-        <h2>cargando...</h2>
-      )}
+      {!loading ? <ItemDetail product={itemDetail} /> : <p>Cargando...</p>}
     </Container>
   );
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;

@@ -10,11 +10,9 @@ import {
 } from "./style";
 
 import { FaBars, FaTimes } from "react-icons/fa";
-import "./links.css";
 import CartWidget from "../CartWidget";
 import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
-
+import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [scrollNavbar, setScrollNavbar] = useState(false);
@@ -46,10 +44,10 @@ const Navbar = () => {
 
         <MenuContainer mobile={showMobileMenu} scrolled={scrollNavbar}>
           <MenuItem>
-            <Link
+            <NavLink
               className="Link"
               activeClass="active"
-              to=""
+              to="/"
               spy={true}
               smooth={true}
               offset={-70}
@@ -57,13 +55,14 @@ const Navbar = () => {
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
               Home
-            </Link>
+            </NavLink>
           </MenuItem>
+
           <MenuItem>
-            <Link
+            <NavLink
               className="Link"
               activeClass="active"
-              to=""
+              to="/"
               spy={true}
               smooth={true}
               offset={-70}
@@ -71,27 +70,27 @@ const Navbar = () => {
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
               All items
-            </Link>
+            </NavLink>
           </MenuItem>
           <MenuItem>
-            <Link
+            <NavLink
               className="Link"
               activeClass="active"
-              to=""
+              to="/category/mens"
               spy={true}
               smooth={true}
               offset={-70}
               duration={1000}
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
-              Mens's
-            </Link>
+              Men's
+            </NavLink>
           </MenuItem>
           <MenuItem>
-            <Link
+            <NavLink
               className="Link"
               activeClass="active"
-              to=""
+              to="/category/womens"
               spy={true}
               smooth={true}
               offset={-70}
@@ -99,7 +98,7 @@ const Navbar = () => {
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
               Women's
-            </Link>
+            </NavLink>
           </MenuItem>
         </MenuContainer>
       </Wrapper>
