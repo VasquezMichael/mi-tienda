@@ -13,9 +13,12 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import CartWidget from "../CartWidget";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useCartContext } from "../../CartContext/CartContext";
+
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [scrollNavbar, setScrollNavbar] = useState(false);
+  const { prueba } = useCartContext();
 
   useEffect(() => {
     const handleScrolled = () => {
@@ -39,7 +42,9 @@ const Navbar = () => {
           <MobileContainer onClick={() => setShowMobileMenu(!showMobileMenu)}>
             {showMobileMenu ? <FaTimes /> : <FaBars />}
           </MobileContainer>
-          <CartWidget />
+          <NavLink to="/cart">
+            <CartWidget />
+          </NavLink>
         </MobileAndCartContainer>
 
         <MenuContainer mobile={showMobileMenu} scrolled={scrollNavbar}>
